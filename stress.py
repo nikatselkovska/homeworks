@@ -1,6 +1,3 @@
-from typing import final
-
-
 stressLevel = ''
 while True:
     stressLevel = input('What is your stress level?')
