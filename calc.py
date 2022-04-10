@@ -1,6 +1,3 @@
-from ast import Break
-
-
 print('Hello! I am ridiculous calculator.')
 intLink = 'https://en.wikipedia.org/wiki/Integer'
 textError = 'It is not an integer! See what integer is: ' + intLink
