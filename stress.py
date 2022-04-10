@@ -14,4 +14,3 @@ while True:
         finalStr = 'A' * stressLevel + '!'
         print(finalStr)
     break
-
