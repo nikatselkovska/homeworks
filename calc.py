@@ -1,24 +1,24 @@
 print('Hello! I am ridiculous calculator.')
-intLink = 'https://en.wikipedia.org/wiki/Integer'
-textError = 'It is not an integer! See what integer is: ' + intLink
+INT_LINK = 'https://en.wikipedia.org/wiki/Integer'
+TEXT_ERROR = 'It is not an integer! See what integer is: ' + INT_LINK
 while True:
-    firstNumber = input('Put first integer operand please: ')
+    first_number = input('Put first integer operand please: ')
     try:
-        firstNumber = int(firstNumber)
+        first_number = int(first_number)
     except:
-        print(textError)
+        print(TEXT_ERROR)
         continue
     break
 
 while True:
-    secondNumber = input('Put second integer operand please: ')
+    second_number = input('Put second integer operand please: ')
     try:
-        secondNumber = int(secondNumber)
+        second_number = int(second_number)
     except:
-        print(textError)
+        print(TEXT_ERROR)
         continue
     break
 
-intResult = firstNumber + secondNumber
-strResut = str(firstNumber) + ' + ' + str(secondNumber) + ' = ' + str(intResult)
-print(strResut)
+int_result = first_number + second_number
+str_resut = str(first_number) + ' + ' + str(second_number) + ' = ' + str(int_result)
+print(str_resut)
