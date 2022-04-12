@@ -1,16 +1,16 @@
-stressLevel = ''
+stress_level = ''
 while True:
-    stressLevel = input('What is your stress level?')
+    stress_level = input('What is your stress level?')
     try:
-        stressLevel = int(stressLevel)
-    except:
+        stress_level = int(stress_level)
+    except Exception:
         print('Put some int!')
         continue
-    if stressLevel == 0:
+    if stress_level == 0:
         print('Your mental health is well. Glory to Ukraine!')
-    elif stressLevel < 0:
+    elif stress_level < 0:
         print('Good for you...')
     else:
-        finalStr = 'A' * stressLevel + '!'
-        print(finalStr)
+        final_str = 'A' * stress_level + '!'
+        print(final_str)
     break
