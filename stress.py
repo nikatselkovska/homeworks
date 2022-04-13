@@ -3,7 +3,7 @@ while True:
     stress_level = input('What is your stress level?')
     try:
         stress_level = int(stress_level)
-    except Exception:
+    except ValueError:
         print('Put some int!')
         continue
     if stress_level == 0:
