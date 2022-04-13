@@ -5,7 +5,7 @@ while True:
     first_number = input('Put first integer operand please: ')
     try:
         first_number = int(first_number)
-    except:
+    except ValueError:
         print(TEXT_ERROR)
         continue
     break
