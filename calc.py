@@ -11,6 +11,13 @@ while True:
     break
 
 while True:
+    operation_type = input('Choose operation type please (only +, -, /, *): ')
+    if operation_type not in '+-/*':
+        print('There are only +, -, /, *. Please input one of avalaible operations')
+        continue
+    break
+
+while True:
     second_number = input('Put second integer operand please: ')
     try:
         second_number = int(second_number)
@@ -19,6 +26,12 @@ while True:
         continue
     break
 
-int_result = first_number + second_number
-str_resut = str(first_number) + ' + ' + str(second_number) + ' = ' + str(int_result)
-print(str_resut)
+# for place economy we won't do if-elif-else construction, we will try to execute code as it is
+str_execute = str(first_number) + str(operation_type) + str(second_number)
+# str_result = "result = " + str_execute + "\nprint(" + '"' + str_execute + ' = "' + " + str(result))"
+str_result = "result = {}\nprint({} + str(result))"
+str_result = str_result.format(str_execute, '"' + str_execute + ' = "')
+try:
+    exec(str_result)
+except Exception as err:
+    print('Oops, there is some runtime error:', err)
