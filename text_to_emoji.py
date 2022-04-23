@@ -6,8 +6,6 @@ text_emoji_dict = {'>:)': '😈', '>:(': '😠', ':)': '🙂', 'XD': '😂', ':(
 user_input = input('Please enter some sentence using text emoji symbols: ')
 
 for text_emoji, icon_emoji in text_emoji_dict.items():
-    if text_emoji not in user_input:
-        continue 
     user_input = user_input.replace(text_emoji, icon_emoji)
 
 print(user_input)
