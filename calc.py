@@ -1,6 +1,3 @@
-from itertools import count
-
-
 print('Hello! I am ridiculous calculator.')
 INT_LINK = 'https://en.wikipedia.org/wiki/Integer'
 TEXT_ERROR = 'It is not an integer! See what integer is: ' + INT_LINK
