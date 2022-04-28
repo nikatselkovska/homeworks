@@ -1,7 +1,7 @@
 print('Hello! I am ridiculous calculator.')
 INT_LINK = 'https://en.wikipedia.org/wiki/Integer'
 TEXT_ERROR = 'It is not an integer! See what integer is: ' + INT_LINK
-OPERATION_TYPES = '+, -, /, *, +++'
+OPERATION_TYPES = ('+', '-', '/', '*', '+++')
 entered_numbers = []
 while True:
     first_number = input('Put first integer operand please: ')
@@ -16,10 +16,10 @@ while True:
     break
 
 while True:
-    operation_type = input(f'Choose operation type please (only {OPERATION_TYPES}): ')
+    operation_type = input(f'Choose operation type please {OPERATION_TYPES}: ')
     if operation_type == '':
         continue
-    elif all((len(operation_type) != 1 or operation_type not in '+-/*', operation_type != '+++')):
+    elif operation_type not in OPERATION_TYPES:
         print(f'There are only {OPERATION_TYPES}. Please input one of avalaible operations')
         continue
     break
@@ -48,23 +48,20 @@ while True:
 
 result_num = 0
 operands_str = ''
-for entered_number in entered_numbers:
-    if entered_numbers.index(entered_number) == 0:
-        result_num = entered_number
-    else: 
-        if operation_type == '+':
-            result_num += entered_number
-        elif operation_type == '-':
-            result_num -= entered_number
-        elif operation_type == '/':
-            try:
-                result_num /= entered_number
-            except ZeroDivisionError as err:
-                print('There is an error:', err)
-                quit()
-        elif operation_type == '*':
-            result_num *= entered_number
-    operation_str = f' {operation_type} ' if entered_numbers.index(entered_number) != len(entered_numbers) - 1 else ''
+for i, entered_number in enumerate(entered_numbers):
+    if i == 0 or operation_type == '+':
+        result_num += entered_number
+    elif operation_type == '-':
+        result_num -= entered_number
+    elif operation_type == '/':
+        try:
+            result_num /= entered_number
+        except ZeroDivisionError:
+            print('♾ (infinity)')
+            quit()
+    elif operation_type == '*':
+        result_num *= entered_number
+    operation_str = f' {operation_type} ' if i != len(entered_numbers) - 1 else ''
     operands_str += str(entered_number) + operation_str
 
 result_str = f'{operands_str} = {result_num}'
