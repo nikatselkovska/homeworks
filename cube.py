@@ -25,11 +25,10 @@ for i in range(OUR_RANGE):
 	place(OUR_RANGE - 1, i, 0)
 
 # circle
-RADIUS = 5
 BLOCKS = 40
 
 for position in range(BLOCKS):
   radians = 2 * math.pi * position / BLOCKS
-  x = RADIUS * math.cos(radians)
-  y = RADIUS * math.sin(radians)
+  x = OUR_RANGE * math.cos(radians)
+  y = OUR_RANGE * math.sin(radians)
   place(x, y, 0)
