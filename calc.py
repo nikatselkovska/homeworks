@@ -1,19 +1,29 @@
+
 print('Hello! I am ridiculous calculator.')
-INT_LINK = 'https://en.wikipedia.org/wiki/Integer'
-TEXT_ERROR = 'It is not an integer! See what integer is: ' + INT_LINK
 OPERATION_TYPES = ('+', '-', '/', '*', '+++')
 entered_numbers = []
-while True:
-    first_number = input('Put first integer operand please: ')
-    if first_number == '':
-        continue 
-    try:
-        first_number = int(first_number)
-        entered_numbers.append(first_number)
-    except ValueError:
-        print(TEXT_ERROR)
-        continue
-    break
+
+
+def input_number(input_message, multiple_sum):
+    text_error = 'It is not an integer or float!'
+    number = None
+    while True:
+        number = input(input_message)
+        if number == '':
+            if multiple_sum:
+                break
+            continue
+        try:
+            number = float(number)
+        except ValueError:
+            print(text_error)
+            continue
+        break
+    return number
+
+
+first_number = input_number('Put first numerical operand please: ', False)
+entered_numbers.append(first_number)
 
 while True:
     operation_type = input(f'Choose operation type please {OPERATION_TYPES}: ')
@@ -29,22 +39,13 @@ if its_multiple_sum:
     operation_type = '+'
 
 while True:
-    second_number = input('Put one more integer operand please: ')
-    if second_number == '':
-        if its_multiple_sum:
-            break
-        else:
-            continue
-    try:
-        second_number = int(second_number)
-        entered_numbers.append(second_number)
-    except ValueError:
-        print(TEXT_ERROR)
-        continue
-    if its_multiple_sum:
-        continue
-    else:
+    second_number = input_number('Put one more numerical operand please: ', its_multiple_sum)
+    if its_multiple_sum and second_number == '':
         break
+    entered_numbers.append(second_number)
+    if not its_multiple_sum:
+        break
+
 
 result_num = 0
 operands_str = ''
