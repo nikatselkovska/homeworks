@@ -1,9 +1,10 @@
-ORD_A = ord('A')
-ORD_Z = ord('z')
+UPPER_ORD = tuple(range(ord('A'), ord('Z') + 1))
+LOWER_ORD = tuple(range(ord('a'), ord('z') + 1))
 
 
 def encode_symbol(first, last, symbol, key):
-    return first + (symbol - first + key) % (last - first + 1)
+    res = first + (symbol - first + key) % (last - first + 1)
+    return res
 
 
 encryption_mode = input('Enter 0 for decryption or 1 for encryption: ')
@@ -30,7 +31,10 @@ final_message = ''
 for text_symbol in text_message:
     final_symbol = text_symbol
     if text_symbol.isalpha():
-        final_symbol = chr(encode_symbol(ORD_A, ORD_Z, ord(text_symbol), shift_value))
+        current_ord_tuple = UPPER_ORD if text_symbol.isupper() else LOWER_ORD
+        symbol_index = current_ord_tuple.index(ord(text_symbol))
+        result_index = encode_symbol(0, len(current_ord_tuple)-1, symbol_index, shift_value)
+        final_symbol = chr(current_ord_tuple[result_index])
     final_message += final_symbol
 
 print(f'Result: {final_message}')
