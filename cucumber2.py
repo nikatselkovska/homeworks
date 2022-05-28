@@ -7,7 +7,6 @@ def check_cucumber(cucumber):
 
 
 print('Hi!')
-input_cucumber = ''
 while True:
     input_cucumber = input('Enter please the word \'Cucumber\':')
     try:
