@@ -1,7 +1,6 @@
 class Operations:
 
     def add(self, *iters):
-        # print(iters)
         return sum(iters)
 
     def mul(self, a, b):
