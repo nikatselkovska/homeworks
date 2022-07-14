@@ -27,7 +27,3 @@ curr_dir_dz = curr_dir + '/' + new_dir_name
 for delete_file in random.sample(list_files, 5):
     subprocess.run(f'rm {delete_file}.log', cwd=curr_dir_dz, shell=True)
     print(f'{delete_file} was deleted')
-
-
-
-
