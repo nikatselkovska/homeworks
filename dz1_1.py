@@ -9,10 +9,9 @@ curr_dir = pwd.stdout.strip()
 print(curr_dir)
 
 new_dir_name = 'dz1'
-try:
-    subprocess.check_call(f'mkdir {new_dir_name}', shell=True, cwd=curr_dir)
-except subprocess.SubprocessError as err:
-    print(err)
+dir_exist = subprocess.run(f'test -d "{new_dir_name}"', cwd=curr_dir, shell=True, capture_output=True)
+if dir_exist.returncode == 1:
+    subprocess.run(f'mkdir {new_dir_name}', shell=True, cwd=curr_dir)
 
 curr_date_time = datetime.datetime.now()
 amount_days = calendar.monthrange(curr_date_time.year, curr_date_time.month)[1]
